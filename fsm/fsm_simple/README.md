@@ -1,0 +1,1 @@
+这是一个最简单的fsm例子，这里每次切换状态都要new state，如果状态数量不多，可以把状态做成singleton，切换的时候，就不用new了，直接取singleton。可以避免频繁的new和delete

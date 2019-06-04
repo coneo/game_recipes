@@ -1,0 +1,18 @@
+<!--巡逻-->
+<group name="g_partol">
+    <node start="s_none" transition="t_true" output="s_randmove"/>
+    <node start="s_randmove" transition="t_false" output="s_none"/>
+</group>
+
+<!--攻击目标-->
+<group name="g_battle">
+    <node start="s_none" transition="t_true" output="s_movetoenemy"/>
+    <node start="s_movetoenemy" transition="t_target_in_range" output="s_castskill"/>
+    <node start="s_castskill" transition="t_target_outof_range" output="s_movetoenemy"/>
+</group>
+
+<!--回到出生区域-->
+<group name="g_gohome">
+    <node start="s_none" transition="t_true" output="s_run_home"/>
+    <node start="s_run_home" transition="t_reach_home" output="s_none"/>
+</group>

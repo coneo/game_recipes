@@ -1,0 +1,18 @@
+<!--非主动怪-->
+<group id="1">
+    <node start="g_none" transition="" output="g_partol"/>
+    <node start="g_partol" transition="t_be_hit" output="g_battle"/>
+    <node start="g_battle" transition="t_out_of_region" output="g_gohome"/>
+    <node start="g_battle" transition="t_target_lose" output="g_gohome"/>
+    <node start="g_gohome" transition="t_reach_home" output="g_none"/>
+</group>
+
+<!--主动怪-->
+<group id="2">
+    <node start="g_none" transition="" output="g_partol"/>
+    <node start="g_partol" transition="t_be_hit" output="g_battle"/>
+    <node start="g_partol" transition="t_findenemy" output="g_battle"/>
+    <node start="g_battle" transition="t_out_of_region" output="g_gohome"/>
+    <node start="g_battle" transition="t_target_lose" output="g_gohome"/>
+    <node start="g_gohome" transition="t_reach_home" output="g_none"/>
+</group>

@@ -3,7 +3,7 @@
 
 int main()
 {
-    TimeWheel tw;
+    TimeWheel<20> tw(1);
 
     tw.addTimer(1, 2, [](){printf("test11\n");});
     tw.addTimer(2, 5, [](){printf("test22\n");});
@@ -13,12 +13,13 @@ int main()
 
     while (true)
     {
-        printf("tick \n");
         uint32_t cur_secs = std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch()).count() / 1000;
+
+        printf("tick %u\n", cur_secs);
 
         tw.tick(cur_secs);
 
-        std::this_thread::sleep_for(std::chrono::milliseconds(1000));
+        std::this_thread::sleep_for(std::chrono::milliseconds(100));
     }
     return 0;
 }
